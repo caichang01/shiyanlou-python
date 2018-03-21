@@ -2,8 +2,11 @@
 
 import sys
 
-try:
-	income = int(sys.argv[1]) - 3500
+def TaxCalculate(name, tax_income):
+	if tax_income < 0:
+		income = 0
+	else:
+		income = tax_income
 	if income  <= 1500:
 		tax = (income * 0.03) - 0
 	elif income <= 4500:
@@ -17,7 +20,17 @@ try:
 	elif income <= 80000:
 		tax = (income * 0.35) - 5505
 	else:  
-		tax = income * 0.45 - 13505
-	print(format(tax,".2f"))
+		tax = (income * 0.45) - 13505
+	sallary = tax_income + 3500 -tax
+	print(name,':',format(sallary,".2f"))
+
+try: 
+	for arg in sys.argv[1:]:
+		params = arg.split(':')
+		name = int(params[0])
+		income = int(params[1])
+		tax_income = (income * (1 - 0.08 - 0.02 - 0.005 - 0.06)) -3500
+		TaxCalculate(name, tax_income)
+
 except:
 	print("Parameter Error")
