@@ -21,13 +21,14 @@ def TaxCalculate(name, tax_income):
 		tax = (income * 0.35) - 5505
 	else:  
 		tax = (income * 0.45) - 13505
-	sallary = tax_income + 3500 -tax
-	print(name,':',format(sallary,".2f"))
+	sallary = format(tax_income + 3500 -tax, ".2f")
+	str1 = name + ':' + sallary
+	print(str1)
 
 try: 
 	for arg in sys.argv[1:]:
 		params = arg.split(':')
-		name = int(params[0])
+		name = params[0]
 		income = int(params[1])
 		tax_income = (income * (1 - 0.08 - 0.02 - 0.005 - 0.06)) -3500
 		TaxCalculate(name, tax_income)
