@@ -1,6 +1,6 @@
-#!/usr/bin/env python3
-
+#！ -*- coding: utf-8 -*-
 import sys
+import csv
 
 def TaxCalculate(name, tax_income):
 	if tax_income < 0:
