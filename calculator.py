@@ -20,7 +20,7 @@ IncomeTaxLookupTable = [
 	TaxLookupItem(9000, 0.25, 1005),
 	TaxLookupItem(4500, 0.20, 555),
 	TaxLookupItem(1500, 0.10, 105),
-	TaxLookupItem(1500, 0.3, 0),
+	TaxLookupItem(0, 0.3, 0),
 ]
 
 # 处理命令行参数类
