@@ -196,7 +196,7 @@ class TaxCalculate(object):
 			if TaxableIncome > item.StartPoint:
 				tax = TaxableIncome * item.TaxRate - item.QuickDeduction
 				# 返回个税及工资，按要求格式输出
-				return '{:2f}'.format(tax), '{:2f}'.format(income - insurance - tax) 
+				return '{:.2f}'.format(tax), '{:.2f}'.format(income - insurance - tax) 
 	
 	# 计算所有用户工资，直接使用 self.userdata 对象
 	def CalForAllUser(self):
@@ -207,7 +207,7 @@ class TaxCalculate(object):
 			# 初始化返回的数据结果，包含工号和税前工资
 			data = [employee_id, income]
 			# 计算五险一金，按要求格式输出:
-			insurance = '{:2f}'.format(self.InsurIncomeCalc(income))
+			insurance = '{:.2f}'.format(self.InsurIncomeCalc(income))
 			# 计算个税和税后工资:
 			tax, remain = self.TaxIncomeCalc(income)
 			# 将计算数据补充到返回列表中:
