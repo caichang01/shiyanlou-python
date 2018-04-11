@@ -154,7 +154,7 @@ class UserData(Process):
 	
 	# 进程发送数据
 	def run(self):
-		for data in self._read_user_data:
+		for data in self._read_user_data():
 			q_userdata.put(data)
 
 # 税后工资计算类
@@ -208,7 +208,7 @@ class TaxCalculate(Process):
 			yield data
 
 	def run(self):
-		for data in self.CalForAllUser:
+		for data in self.CalForAllUser():
 			q_result.put(data)
 	
 # 导出数据文件为csv格式
