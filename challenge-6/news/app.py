@@ -8,7 +8,7 @@ app = Flask(__name__)
 class Files(object):
 
     # 使用os.path模块确定新闻文件路径
-    directory = os.path.join(os.path.abspath(__name__), '..', 'files')
+    directory = os.path.join(os.path.abspath(os.path.dirname(__name__)), '..', 'files')
 
     def __init__(self):
         self._files = self._readAllFile()
@@ -36,7 +36,7 @@ files = Files()
 
 @app.route('/')
 def index():
-    return render_template('index.html', titleList = files._getTitleList)
+    return render_template('index.html', titleList = files._getTitleList())
 
 @app.route('/files/<filename>')
 def file(filename):
