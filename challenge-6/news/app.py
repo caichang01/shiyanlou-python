@@ -1,8 +1,45 @@
 import os
 import json
 from flask import Flask, render_template, abort
+from flask_sqlalchemy import SQLAlchemy
+from datetime import datetime
 
 app = Flask(__name__)
+app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:////tmp/test.db'
+db = SQLAlchemy(app)
+
+# SQLAlchemy创建文章表
+class File(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    title = db.Column(db.String(80))
+    created_time = db.Column(db.Datetime)
+    content = db.Column(db.Text)
+
+    category_id = db.Column(db.Integer, db.ForeignKey('category.id'))
+    category = db.relationship('Category',
+        backref=db.backref('files', lazy='dynamic'))
+
+    def __init__(self, title, content, category, created_time = None):
+        self.id = id
+        self.title = title
+        if created_time is None:
+            created_time = datetime.utcnow()
+        self.created_time = created_time
+        self.category = category
+
+    def __repr__(self):
+        return '<File %r>' % self.title
+
+# SQLAlchemy创建类别表
+class Category(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    name = db.Column(db.String(80))
+
+    def __init__(self, name):
+        self.name = name
+
+    def __repr__(self):
+        return '<Category %r>' % self.username
 
 # 定义文件处理类
 class Files(object):
