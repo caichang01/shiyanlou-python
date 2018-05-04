@@ -5,11 +5,13 @@ from flask_sqlalchemy import SQLAlchemy
 from datetime import datetime
 
 app = Flask(__name__)
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:////tmp/test.db'
+app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql://root@localhost/shiyanlou'
 db = SQLAlchemy(app)
 
 # SQLAlchemy创建文章表
 class File(db.Model):
+    __tablename__ = 'files'
+
     id = db.Column(db.Integer, primary_key=True)
     title = db.Column(db.String(80))
     created_time = db.Column(db.Datetime)
@@ -32,6 +34,8 @@ class File(db.Model):
 
 # SQLAlchemy创建类别表
 class Category(db.Model):
+    __tablename__ = 'categories'
+
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(80))
 
@@ -73,14 +77,12 @@ files = Files()
 
 @app.route('/')
 def index():
-    return render_template('index.html', titleList = files._getTitleList())
+    return render_template('index.html', files = File.query.all())
 
-@app.route('/files/<filename>')
-def file(filename):
-    fileItem = files._getByFilename(filename)
-    if not fileItem:
-        abort(404)
-    return render_template('file.html', fileItem = fileItem)
+@app.route('/files/<int:file_id>')
+def file(file_id):
+    file_item = File.query.get_or_404(file_id)
+    return render_template('file.html', file_item =file_item)
 
 @app.errorhandler(404)
 def not_found(error):
