@@ -22,10 +22,10 @@ class File(db.Model):
 
     category_id = db.Column(db.Integer, db.ForeignKey('categories.id'))
     category = db.relationship('Category',
+        uselist=False,
         backref=db.backref('files', lazy='dynamic'))
 
     def __init__(self, title, content, category, created_time = None):
-        self.id = id
         self.title = title
         self.content = content
         if created_time is None:
