@@ -12,7 +12,7 @@
         <li>
             <a href="{{ url_for('file', file_id=file.id) }}" target="_blank">{{ file.title }}</a>
             {% for tag in file.tags}
-            <span>{{ tag }}</span>
+                <span>{{ tag }}</span>
             {% endfor %}
         </li>
         {% endfor %}
