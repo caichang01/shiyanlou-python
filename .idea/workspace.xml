@@ -3,8 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="90ae6cee-67ce-444f-914b-44eb19278e36" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shiyanlou-python.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shiyanlou-python.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -17,9 +15,9 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file leaf-file-name="app.py" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/challenge-6/news/app.py">
+        <entry file="file://$PROJECT_DIR$/challenge-6&amp;7/news/app.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-399">
+            <state relative-caret-position="-1394">
               <folding>
                 <element signature="e#0#9#0" expanded="true" />
               </folding>
@@ -53,12 +51,12 @@
             <path>
               <item name="shiyanlou-python" type="b2602c69:ProjectViewProjectNode" />
               <item name="shiyanlou-python" type="462c0819:PsiDirectoryNode" />
-              <item name="challenge-6" type="462c0819:PsiDirectoryNode" />
+              <item name="challenge-6&amp;7" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="shiyanlou-python" type="b2602c69:ProjectViewProjectNode" />
               <item name="shiyanlou-python" type="462c0819:PsiDirectoryNode" />
-              <item name="challenge-6" type="462c0819:PsiDirectoryNode" />
+              <item name="challenge-6&amp;7" type="462c0819:PsiDirectoryNode" />
               <item name="news" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
@@ -121,7 +119,25 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/challenge-6/news/app.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-399">
+        <state>
+          <folding>
+            <element signature="e#0#9#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/challenge-6/news/app.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <folding>
+            <element signature="e#0#9#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/challenge-6&amp;7/news/app.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1394">
           <folding>
             <element signature="e#0#9#0" expanded="true" />
           </folding>
