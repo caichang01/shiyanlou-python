@@ -1,6 +1,4 @@
-import os
-import json
-from flask import Flask, render_template, abort
+from flask import Flask, render_template
 from flask_sqlalchemy import SQLAlchemy
 from datetime import datetime
 from pymongo import MongoClient
