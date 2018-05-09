@@ -78,5 +78,4 @@ def main():
 
 # 执行
 if __name__ == '__main__':
-    ipDict, urlDict = main()
-    print(ipDict, urlDict)
+    print(main())
