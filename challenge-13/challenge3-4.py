@@ -37,43 +37,43 @@ def main():
         db.log.insert_one(user)
 
     ips = db.log.find().sort([('ip', pymongo.DESCENDING)])
-    ipInit = 0
-    ipDict = dict()
-    urlDict = dict()
+    ip_init = 0
+    ip_dict = dict()
+    url_dict = dict()
     for ipAddress in ips:
         if ipAddress['time'][:11] == '11/Jan/2017':
-            if ipAddress['ip'] == ipInit:
-                ipDict[ipInit] += 1
+            if ipAddress['ip'] == ip_init:
+                ip_dict[ip_init] += 1
             else:
-                ipInit = ipAddress['ip']
-                ipDict[ipInit] = 1
+                ip_init = ipAddress['ip']
+                ip_dict[ip_init] = 1
         if ipAddress['status'] == "404":
             try:
-                urlDict[ipAddress['url']] += 1
+                url_dict[ipAddress['url']] += 1
             except KeyError:
-                urlDict[ipAddress['url']] = 1   # 对字典进行初始化
+                url_dict[ipAddress['url']] = 1   # 对字典进行初始化
 
-    ipCounts = 0
-    mostFrequentIp = 0
-    for key, value in ipDict.items():
-        if value > ipCounts:
-            ipCounts = value
-            mostFrequentIp = key
-    ipDict = dict()
-    ipDict[mostFrequentIp] = ipCounts
+    ip_counts = 0
+    most_frequent_ip = 0
+    for key, value in ip_dict.items():
+        if value > ip_counts:
+            ip_counts = value
+            most_frequent_ip = key
+    ip_dict = dict()
+    ip_dict[most_frequent_ip] = ip_counts
 
-    urlCounts = 0
-    mostFrequentUrl = 0
-    for key, value in urlDict.items():
-        if value > urlCounts:
-            urlCounts = value
-            mostFrequentUrl = key
-    urlDict = dict()
-    urlDict[mostFrequentUrl] = urlCounts
+    url_counts = 0
+    most_frequent_url = 0
+    for key, value in url_dict.items():
+        if value > url_counts:
+            url_counts = value
+            most_frequent_url = key
+    url_dict = dict()
+    url_dict[most_frequent_url] = url_counts
 
     db.drop_collection('log')
 
-    return ipDict, urlDict
+    return ip_dict, url_dict
 
 
 # 执行
