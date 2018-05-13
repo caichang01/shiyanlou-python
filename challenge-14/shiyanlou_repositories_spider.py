@@ -8,7 +8,7 @@ class ShiyanlouRepositoriesSpider(scrapy.Spider):
     def start_urls(self):
         url_templ = 'https://github.com/shiyanlou?page={}&tab=repositories'
         return (url_templ.format(i) for i in range(1, 5))
-    
+
     def parse(self, response):
         for repository in response.css('div#user-repositories-list > ul > li'):
             yield{
