@@ -11,7 +11,7 @@ class ShiyanlouRepositoriesSpider(scrapy.Spider):
 
     def parse(self, response):
         for repository in response.css('div#user-repositories-list > ul > li'):
-            yield{
+            yield {
                 'name': repository.css('div.d-inline-block.mb-1 h3 a::text')
                 .re_first(r'[^\S]*(.+)[^\S]*'),
                 'updated_time': repository.css('div.f6.text-gray.mt-2 \
