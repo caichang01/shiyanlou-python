@@ -7,14 +7,9 @@ from scrapy.http import HtmlResponse
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
-from selenium.webdriver.chrome.options import Options
 
-chrome_options = Options()
-chrome_options.add_argument('--headless')
-chrome_options.add_argument('--disable-gpu')
-
-chrome_options.binary_location = \
-    r'C:\Program Files (x86)\Google\Chrome\Application\chrome.exe'
+options = webdriver.FirefoxOptions()
+options.add_argument('-headless')
 
 # 存储爬取的结果
 results = []
@@ -40,7 +35,6 @@ def has_next_page(response):
     # 返回 True 或者 False
     class_list = response.xpath('//li[contains(@class, "next-page")]\
     /@class').extract_first()
-    # 出现bug的原因是，未加extract_first方法调用，这样返回的是对象，其后的判断永远是真值
 
     if 'disabled' in class_list:
         return False
@@ -68,8 +62,8 @@ def wait_page_return(driver, page):
 
 # 主函数
 def spider():
-    # 创建 Chrome 的 webdriver
-    driver = webdriver.Chrome(chrome_options=chrome_options)
+    # 创建 Firefox 的 webdriver
+    driver = webdriver.Firefox(options=options)
     # 获取第一个页面
     url = 'https://www.shiyanlou.com/courses/427'
     driver.get(url)

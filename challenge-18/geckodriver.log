@@ -1,0 +1,17 @@
+1526604800231	geckodriver	INFO	geckodriver 0.20.1
+1526604800241	geckodriver	INFO	Listening on 127.0.0.1:38315
+1526604801249	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-headless" "-profile" "/tmp/rust_mozprofile.7FcIrbbakwiN"
+*** You are running in headless mode.
+1526604802989	Marionette	INFO	Listening on port 46555
+1526604803067	Marionette	WARN	TLS certificate errors will be ignored for this session
+
+(/usr/lib/firefox/firefox:4977): dconf-WARNING **: 08:53:25.881: Unable to open /var/lib/snapd/desktop/dconf/profile/user: 权限不够
+1526604921230	geckodriver	INFO	geckodriver 0.20.1
+1526604921240	geckodriver	INFO	Listening on 127.0.0.1:60539
+1526604922245	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-headless" "-profile" "/tmp/rust_mozprofile.0t00ougUYuc2"
+*** You are running in headless mode.
+1526604924081	Marionette	INFO	Listening on port 34203
+1526604924176	Marionette	WARN	TLS certificate errors will be ignored for this session
+
+(/usr/lib/firefox/firefox:5247): dconf-WARNING **: 08:55:26.507: Unable to open /var/lib/snapd/desktop/dconf/profile/user: 权限不够
+*** UTM:SVC TimerManager:registerTimer called after profile-before-change notification. Ignoring timer registration for id: telemetry_modules_ping
