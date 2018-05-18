@@ -13,9 +13,6 @@ chrome_options = Options()
 chrome_options.add_argument('--headless')
 chrome_options.add_argument('--disable-gpu')
 
-chrome_options.binary_location = \
-    r'C:\Program Files (x86)\Google\Chrome\Application\chrome.exe'
-
 # 存储爬取的结果
 results = []
 
