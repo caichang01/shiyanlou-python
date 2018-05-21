@@ -12,10 +12,10 @@ class FlaskSpider(scrapy.spiders.CrawlSpider):
 
     rules = (
         Rule(LinkExtractor(allow='http://flask.pocoo.org/docs/0.12/.*'),
-             callback='parse', follow=True),
+             callback='page_parse', follow=True),
     )
 
-    def parse(self, response):
+    def page_parse(self, response):
         item = PageItem()
 
         item['url'] = response.url
