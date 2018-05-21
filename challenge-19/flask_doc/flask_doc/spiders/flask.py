@@ -19,3 +19,5 @@ class FlaskSpider(scrapy.spiders.CrawlSpider):
         item = PageItem()
 
         item['url'] = response.url
+        item['text'] = ' '.join(response.xpath('//text()').extract())
+        yield item
