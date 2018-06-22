@@ -6,6 +6,7 @@ wb = load_workbook('courses.xlsx')
 students_sheet = wb['students']
 time_sheet = wb['time']
 
+
 def combine():
     # 创建combine表
     combine_sheet = wb.create_sheet(title='combine')
@@ -24,6 +25,7 @@ def combine():
     # 覆盖保存原文件
     wb.save('courses.xlsx')
 
+
 def split():
     # 载入combine sheet
     combine_sheet = wb['combine']
@@ -35,20 +37,21 @@ def split():
         if item[0] != '创建时间':
             split_year.append(item[0].strftime("%Y"))
     split_year = list(set(split_year))
-    
+
     # 创建年份对应的表
     for year in split_year:
         wb_temp = Workbook()
         # 移除创建表格时默认生成的sheet
         wb_temp.remove(wb_temp.active)
         # 创建名称为年份的sheet
-        ws = wb_temp.create_sheet(title= year)
+        ws = wb_temp.create_sheet(title=year)
         for data in combine_sheet.values:
             # 注意在进行时间字符串化时一定要注意表头，否则将会报错，因为表头不是datetime格式的，不具备strftime方法
             if data[0] != '创建时间':
                 if data[0].strftime("%Y") == year:
                     ws.append(list(data))
         wb_temp.save('{}.xlsx'.format(year))
+
 
 # 执行
 if __name__ == '__main__':
