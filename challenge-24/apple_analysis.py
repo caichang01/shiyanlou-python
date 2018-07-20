@@ -7,8 +7,8 @@ def quarter_volume():
     data = data.volume
     data.index = pd.to_datetime(data.Date)
 
-    data_resample = data.resample('Q').sum()
-    second_volume = data_resample[1]
+    data_resample = data.resample('Q').sum().sort_values()
+    second_volume = data_resample[-2]
 
     return second_volume
 
